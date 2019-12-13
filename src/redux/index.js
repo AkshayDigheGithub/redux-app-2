@@ -3,6 +3,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import UserReducer from './Reducer/usersReducer';
 import EmployeeReducer from './Reducer/employeeReducer';
+import { logMiddleware } from './middleware/logmiddleware';
 
 const allReducer = combineReducers({
     users: UserReducer,
@@ -18,7 +19,7 @@ const initialState = {
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const middleware = [thunk, logger]
+const middleware = [thunk, logger, logMiddleware]
 
 const store = createStore(allReducer, initialState, compose(applyMiddleware(...middleware), composeEnhancer));
 
