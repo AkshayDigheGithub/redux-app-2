@@ -11,7 +11,6 @@ function App(props) {
 
       {
         (props.users.length === 0 || props.users.length === 6) ?
-
           <UserComponent /> : <SingleUserList />
       }
     </div>
